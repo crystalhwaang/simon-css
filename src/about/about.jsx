@@ -1,11 +1,23 @@
 import React from 'react';
 import './about.css';
 
-export function About() {
+export function About(props) {
+  const [imageUrl, setImageUrl] = React.useState('');
+  const [quote, setQuote] = React.useState('Loading...');
+  const [quoteAuthor, setQuoteAuthor] = React.useState('unknown');
+
+  React.useEffect(() => {
+    setImageUrl(`placeholder.jpg`);
+    setQuote('Show me the code');
+    setQuoteAuthor('Linus Torvalds');
+  }, []);
+  
   return (
     <main className="container-fluid bg-secondary text-center">
       <div>
-        <div id="picture" className="picture-box"><img src="placeholder.jpg" alt="random" /></div>
+        <div id="picture" className="picture-box">
+          <img src="placeholder.jpg" alt="random" />
+        </div>
 
         <p>
           Simon is a repetitive memory game where you follow the demonstrated color sequence until you make a mistake.
